@@ -91,7 +91,9 @@ class LoggiClient implements ClientGraphQLContract
 
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
 
-        $result = json_decode(curl_exec($curl), true);
+        $response = curl_exec($curl);
+
+        $result = json_decode($response, true);
 
         curl_close($curl);
 

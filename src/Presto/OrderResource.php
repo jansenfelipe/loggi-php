@@ -36,14 +36,11 @@ class OrderResource
     public function estimation(ShopEntity $from, LocationEntity $to)
     {
         $query = new Query([
-            'estimate(shopId: '.$from->id.', optimize: true, packagesDestination[{lat: '.$to->latitude.', lng: '.$to->longitude.'}])' => [
-                'packages' => [
-                    'error',
-                    'outOfCityCover',
-                    'outOfCoverageArea',
-                    'routeOptimized',
-                    'normal' =>  ['cost', 'distance', 'eta'],
-                    'optimized' =>  ['cost', 'distance', 'eta']
+            'estimate(shopId: '.$from->id.', packagesDestination: [{lat: '.$to->latitude.', lng: '.$to->longitude.'}])' => [
+                'normal' =>  [
+                    'cost',
+                    'distance',
+                    'eta'
                 ]
             ]
         ]);
@@ -51,6 +48,8 @@ class OrderResource
         $response = $this->client->executeQuery($query);
 
         $estimate = new EstimateEntity();
+
+        $estimate->price = $response['estimate']['normal']['cost'];
 
         return $estimate;
     }
