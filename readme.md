@@ -6,6 +6,12 @@ Read More https://api.loggi.com/introduction/welcome
 
 ## HowTo Use
 
+First, install library:
+
+```ssh
+$ composer require jansenfelipe/loggi-php
+```
+
 Just instantiate the resource you want to consume. 
 
 In the example below I'm looking for all the Shops:
