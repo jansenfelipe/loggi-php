@@ -1,0 +1,23 @@
+{
+    "name": "jansenfelipe/loggi-php",
+    "description": "Abstraction layer PHP to integrate with a Loggi API",
+    "type": "library",
+    "keywords": ["loggi"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jansen Felipe",
+            "email": "jansen.felipe@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "JansenFelipe\\LoggiPHP\\": "src/",
+            "JansenFelipe\\LoggiPHP\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5"
+    },
+    "minimum-stability": "dev"
+}
