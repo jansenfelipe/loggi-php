@@ -50,7 +50,7 @@ $shopResource = new ShopResource($client);
 
 ```
 
-### Available resources
+## Available resources
 
 * Presto
     * ShopResource
@@ -58,13 +58,13 @@ $shopResource = new ShopResource($client);
     * OrderResource
         * estimation(from:ShopEntity, to:LocationEntity) : EstimateEntity
         
-### Entities
+## Entities
 
 * Presto
-    * ShopEntity
-    * LocationEntity
-    * EstimateEntity
+    * [ShopEntity](https://github.com/jansenfelipe/loggi-php/blob/master/src/Presto/Entities/ShopEntity.php)
+    * [LocationEntity](https://github.com/jansenfelipe/loggi-php/blob/master/src/Presto/Entities/LocationEntity.php)
+    * [EstimateEntity](https://github.com/jansenfelipe/loggi-php/blob/master/src/Presto/Entities/EstimateEntity.php)
 
-### License
+## License
 
 The MIT License (MIT)
