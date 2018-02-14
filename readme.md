@@ -31,6 +31,7 @@ foreach ($result as $shop) {
 /*
  * Now, I will estimate the price to deliver at a certain point
  */
+
 $from = $result[0]; //Get a first shop
 
 $orderResource = new OrderResource();
