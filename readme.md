@@ -89,6 +89,32 @@ $shopResource = new ShopResource($client);
     * [LocationEntity](https://github.com/jansenfelipe/loggi-php/blob/master/src/Presto/Entities/LocationEntity.php)
     * [EstimateEntity](https://github.com/jansenfelipe/loggi-php/blob/master/src/Presto/Entities/EstimateEntity.php)
 
+## Standalone
+
+You can run a query without using resources. Just call the `executeQuery($query)` method of the `LoggiClient` class.
+
+For example, let's look at all the cities where Loggi operates:
+
+```php
+<?php
+
+use JansenFelipe\LoggiPHP\LoggiClient;
+use JansenFelipe\LoggiPHP\Query;
+
+$client = new LoggiClient(LoggiClient::SANDBOX, 'my-email@gmail.com', 'my-key-api');
+
+$query = new Query([
+    'allCities' => [
+        'edges' => [
+            'node' => ['pk', 'name', 'slug']
+        ]
+    ]
+]);
+
+$response = $client->executeQuery($query);
+
+```
+
 ## License
 
 The MIT License (MIT)
