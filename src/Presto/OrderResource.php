@@ -2,6 +2,7 @@
 
 namespace JansenFelipe\LoggiPHP\Presto;
 
+use JansenFelipe\LoggiPHP\Exceptions\ResponseException;
 use JansenFelipe\LoggiPHP\LoggiClient;
 use JansenFelipe\LoggiPHP\Contracts\ClientGraphQLContract;
 use JansenFelipe\LoggiPHP\Presto\Entities\EstimateEntity;
@@ -37,6 +38,9 @@ class OrderResource
     {
         $query = new Query([
             'estimate(shopId: '.$from->id.', packagesDestination: [{lat: '.$to->latitude.', lng: '.$to->longitude.'}])' => [
+                'packages' =>  [
+                    'error'
+                ],
                 'normal' =>  [
                     'cost',
                     'distance',
@@ -46,6 +50,12 @@ class OrderResource
         ]);
 
         $response = $this->client->executeQuery($query);
+
+        if(!isset($response['estimate']))
+            throw new ResponseException('Estimate not found.');
+
+        if(isset($response['estimate']['packages'][0]['error']))
+            throw new ResponseException($response['estimate']['packages'][0]['error']);
 
         $estimate = new EstimateEntity();
 
