@@ -1,4 +1,6 @@
 # LoggiPHP
+[![Travis](https://travis-ci.org/jansenfelipe/loggi-php.svg?branch=master)](https://travis-ci.org/jansenfelipe/loggi-php)
+
 
 Abstraction layer PHP to integrate with a Loggi API.
 
