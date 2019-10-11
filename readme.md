@@ -4,7 +4,7 @@
 
 Abstraction layer PHP to integrate with a Loggi API.
 
-Read More https://api.loggi.com/introduction/welcome
+Read More https://docs.api.loggi.com/docs
 
 ## HowTo Use
 
